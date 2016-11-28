@@ -1,5 +1,5 @@
 /** importar as configurações do servidor */
-var app = require('./config/server');
+var app = require('./config/server.js');
 
 
 /** parametrizar a porta de escuta */
@@ -15,7 +15,7 @@ app.set('io', io);
 /** criar a conexão por websocket */
 io.on('connection', function(socket) {
     console.log('Usuário conectou');
-    
+
     socket.on('disconnect', function(){
         console.log('Usuário desconectou');
     });
@@ -23,24 +23,24 @@ io.on('connection', function(socket) {
     socket.on('msgParaServidor', function(data) {
         /** diálogo */
         socket.emit(
-            'msgParaCliente', 
+            'msgParaCliente',
             {apelido: data.apelido, mensagem: data.mensagem}
         );
 
         socket.broadcast.emit(
-            'msgParaCliente', 
+            'msgParaCliente',
             {apelido: data.apelido, mensagem: data.mensagem}
         );
 
         /** participantes */
         if(parseInt(data.apelido_atualizado_nos_clientes) == 0) {
             socket.emit(
-                'participantesParaCliente', 
+                'participantesParaCliente',
                 {apelido: data.apelido}
             );
 
             socket.broadcast.emit(
-                'participantesParaCliente', 
+                'participantesParaCliente',
                 {apelido: data.apelido}
             );
         }
