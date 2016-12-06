@@ -1,6 +1,16 @@
 body {
     background-color: #444;
-    background: url('../images/login-bg.jpg');  
+    background: url('../images/space.jpg');
+    background-size: cover;
+    animation: space 20s infinite alternate linear;
+    font-size: 10px;
+}
+
+@keyframes space {
+from {
+  background-position: -150px 150px; }
+to {
+  background-position: 150px -150px; }
 }
 
 .form-signin input[type="text"] {
@@ -60,14 +70,19 @@ img {
     vertical-align: middle;
 }
 
+.container {
+  margin: 0 auto;
+  min-width: 98vw;
+}
+
 .conversa{
-	margin-top:70px;
-	margin-bottom: 70px;
+	margin-top: 5em;
 }
 
 .participantes{
 	margin-top:70px;
 	margin-bottom: 70px;
+  color: #FFF;
 }
 
 .participante{
@@ -77,24 +92,71 @@ img {
 
 .participante img{
 	margin-top:-10px;
+  max-width: 2vw;
+  background-color: #FFF;
+  border-radius: 50%;
 }
 
-.dialogo{
-	width:100%;
-	height:auto;
-	margin-bottom:15px;
-	padding:10px;
-	background:#D8F0FE;
+.center {
+  text-align: center;
+  max-width: 40vw;
+  margin: 1.2em auto auto auto;
+  padding: 0;
 }
 
-.dialogo h4{
-	font-size:15px;
-	font-weight: bold;
-	color:#8B7777;
+.left {
+  max-width: 30vw;
+  margin: .2em 0;
+  padding: 0.4em;
+  word-wrap: break-word;
 }
 
-.dialogo p{
-	font-size:12px;
-	padding-left:15px;
-	color:#8B7777;
+.right {
+  max-width: 30vw;
+  margin: .2em 0;
+  background-color: #3b5998;
+  color: #FFF;
+  padding: 0.2em;
+  word-wrap: break-word;
+}
+
+.both {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.both1 {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.bot {
+  display: block;
+  min-height: 12vh;
+}
+
+.alert img {
+  max-width: 2.5vw;
+  border-radius: 50%;
+}
+
+.part {
+  max-width: 30vw;
+}
+
+#enviar_mensagem {
+  max-width: 20vw;
+}
+
+@media (min-width: 768px){
+  body {
+    font-size: 18px;
+  }
+  .center {
+    max-width: 20vw;
+    margin: 0.2em auto auto auto;
+  }
+  .part {
+    max-width: 12vw;
+  }
 }
